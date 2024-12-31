@@ -18,3 +18,16 @@ SELECT c.categories_name,
     c.categories_name
   ORDER BY
     c.categories_name;  
+	
+SELECT c.categories_name,
+  COUNT(g.id_goods) AS goods_cnt
+  FROM 
+    vw_goods_categories AS c
+  LEFT JOIN 
+    vw_goods AS g 
+  ON
+    c.id_categories = g.id_categories
+  GROUP BY 
+    c.categories_name;
+  ORDER BY
+    c.categories_name;  
